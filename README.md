@@ -1,9 +1,3 @@
-## README
-
-### Nursery Tab
-- Add 2 large horizontally aligned incubator slots, showing egg, timer, "Ready to Hatch!" shake animation, and support clicking to pick from inventory below.
-- Egg inventory: row of small boxes, click to select for incubation.
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -401,11 +395,6 @@
             }
             .navigation-tabs {
                 justify-content: space-around;
-                flex-wrap: wrap; /* Allow tabs to wrap on small screens */
-            }
-            .tab-button {
-                padding: 0.5rem 1rem; /* Smaller padding on mobile */
-                font-size: 1rem;
             }
             .crafting-recipes-container {
                 grid-template-columns: 1fr; /* Single column on mobile */
@@ -642,7 +631,7 @@
             gap: 2rem;
         }
 
-        #dive-prep-area, #deep-dive-prep-area {
+        #dive-prep-area {
             text-align: center;
         }
         
@@ -660,7 +649,7 @@
             gap: 1rem;
         }
 
-        #dive-minigame-area, #deep-dive-minigame-area {
+        #dive-minigame-area {
             display: none;
             flex-direction: column;
             align-items: center;
@@ -670,7 +659,7 @@
             overflow: hidden; /* Prevent internal scrollbars */
         }
         
-        #minigame-grid, #deep-minigame-grid {
+        #minigame-grid {
             font-family: 'Courier New', Courier, monospace;
             font-size: 1.2rem;
             line-height: 1.2rem;
@@ -690,12 +679,6 @@
         .landmark { color: red; font-weight: bold; cursor: help; position: relative; }
         .safe-path { color: #aaa; } /* New style for safe paths */
         .habitat { color: purple; font-weight: bold; } /* New style for habitats */
-        .pet { font-size: 0.6rem; vertical-align: middle; animation: bob 1s infinite ease-in-out; }
-
-        @keyframes bob {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-3px); }
-        }
 
 
         /* Tooltip for landmarks */
@@ -878,7 +861,7 @@
         }
         
         /* New Dive UI Styles */
-        #dive-ui-container, #deep-dive-ui-container {
+        #dive-ui-container {
             display: flex;
             gap: 2rem;
             align-items: center;
@@ -888,13 +871,13 @@
             margin-top: 1rem;
         }
         
-        #dive-stats, #deep-dive-stats {
+        #dive-stats {
             display: flex;
             gap: 1rem;
             align-items: center;
         }
         
-        #dive-inventory-display, #deep-dive-inventory-display {
+        #dive-inventory-display {
             border: 2px solid var(--color-border);
             padding: 0.5rem;
             min-height: 60px;
@@ -1056,171 +1039,6 @@
         .bestiary-entry h3 {
             margin-top: 0;
         }
-        
-        /* Nursery and Merchant Styles */
-        .nursery-page, .merchant-page {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            width: 100%;
-            height: 100%;
-            padding: 2rem;
-            overflow-y: auto;
-        }
-        
-        #incubator-slots {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .incubator-slot {
-            width: 100px;
-            height: 100px;
-            border: 2px solid var(--color-border);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-        
-        .incubator-slot.shaking {
-            animation: shake 0.5s infinite;
-        }
-
-        @keyframes shake {
-            0%, 100% { transform: translate(0, 0) rotate(0); }
-            25% { transform: translate(2px, -2px) rotate(2deg); }
-            50% { transform: translate(-2px, 2px) rotate(-2deg); }
-            75% { transform: translate(2px, 2px) rotate(2deg); }
-        }
-        
-        #pet-catalog-container {
-            width: 100%;
-            max-width: 800px;
-        }
-        
-        .pet-rarity-section {
-            margin-bottom: 1rem;
-        }
-        
-        .pet-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
-            gap: 5px;
-        }
-
-        .pet-slot {
-            width: 60px;
-            height: 60px;
-            border: 2px solid var(--color-border);
-            background-color: #eee;
-            filter: blur(4px);
-            position: relative;
-            cursor: pointer;
-        }
-        
-        .pet-slot.unlocked {
-            filter: none;
-            background-color: var(--color-bg);
-        }
-        
-        .pet-slot.equipped {
-            border-color: blue;
-            border-width: 3px;
-        }
-
-        .pet-tooltip {
-            visibility: hidden;
-            width: 200px;
-            background-color: var(--color-bg);
-            border: 2px solid var(--color-border);
-            color: var(--color-fg);
-            text-align: left;
-            padding: 1rem;
-            position: absolute;
-            z-index: 1;
-            bottom: 105%;
-            left: 50%;
-            margin-left: -100px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .pet-slot:hover .pet-tooltip {
-            visibility: visible;
-            opacity: 1;
-        }
-        
-        #merchant-eggs {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .egg-for-sale {
-            width: 200px;
-            height: 200px;
-            border: 2px solid var(--color-border);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem;
-            cursor: pointer;
-        }
-        
-        .egg-for-sale:hover {
-            background-color: var(--color-button-hover);
-        }
-        
-        .egg-art {
-            font-size: 3rem;
-        }
-        
-        #pearl-display {
-            border: 2px solid var(--color-border);
-            padding: 0.5rem 1rem;
-            font-size: 1.2rem;
-        }
-        
-        #hatch-modal .modal-content {
-            overflow: hidden;
-        }
-
-        #wheel-container {
-            width: 300px;
-            height: 300px;
-            border: 2px solid var(--color-border);
-            border-radius: 50%;
-            position: relative;
-            margin: 1rem auto;
-            transition: transform 5s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .wheel-segment {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            clip-path: polygon(50% 50%, 0% 0%, 100% 0%);
-            transform-origin: 50% 50%;
-        }
-        
-        #wheel-arrow {
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 0;
-            border-left: 10px solid transparent;
-            border-right: 10px solid transparent;
-            border-bottom: 20px solid var(--color-fg);
-        }
 
 
     </style>
@@ -1236,9 +1054,6 @@
                 <button id="achievements-tab" class="tab-button">Achievements</button>
                 <button id="workers-tab" class="tab-button" style="display: none;">Workers<span id="workers-indicator" class="new-indicator" style="display: none;"></span></button>
                 <button id="dive-tab" class="tab-button" style="display: none;">Dive<span id="dive-indicator" class="new-indicator" style="display: none;"></span></button>
-                <button id="deep-dive-tab" class="tab-button" style="display: none;">Deep Dive</button>
-                <button id="nursery-tab" class="tab-button" style="display: none;">Nursery</button>
-                <button id="merchant-tab" class="tab-button" style="display: none;">Merchant</button>
             </div>
             
             <!-- Main Game Area -->
@@ -1312,40 +1127,6 @@
                     <p>Use arrow keys or WASD to move. Find # for loot. Return to $ to finish.</p>
                 </div>
             </div>
-
-            <!-- Deep Dive Area Page -->
-            <div id="deep-dive-screen" class="dive-page">
-                <div id="deep-dive-prep-area">
-                    <h2>Prepare for your Deep Dive</h2>
-                    <p>The crushing depths await. Select your tools carefully.</p>
-                    <div id="deep-tool-selection-container" class="tool-selection-container">
-                        <!-- Tools will be dynamically added here -->
-                    </div>
-                    <button id="begin-deep-dive-button" class="game-button">
-                        Begin Deep Dive
-                        <div id="cooldown-bar-deep-dive" class="cooldown-bar" style="width: 0;"></div>
-                    </button>
-                </div>
-                <div id="deep-dive-minigame-area">
-                    <div id="deep-minigame-grid"></div>
-                    <div id="deep-dive-ui-container">
-                        <div id="deep-dive-stats">
-                            <p>Moves Left: <span id="deep-moves-left">5</span></p>
-                            <div>
-                                <p>Health: <span id="deep-dive-health-text">15 / 15</span></p>
-                                <div class="health-bar-container" style="height: 8px; width: 100px;">
-                                    <div id="deep-dive-player-health-bar" class="health-bar"></div>
-                                </div>
-                            </div>
-                            <button id="deep-use-bandage-button" class="game-button">Use Bandage (<span id="deep-dive-bandage-count">0</span>)</button>
-                        </div>
-                        <div id="deep-dive-inventory-display">
-                            <!-- Deep Dive inventory slots will be shown here -->
-                        </div>
-                    </div>
-                    <p>Arrow keys or WASD to move. The abyss is hostile. Return to $ to finish.</p>
-                </div>
-            </div>
             
             <!-- Crafting Area Page -->
             <div id="crafting-screen" class="craft-area-page">
@@ -1361,12 +1142,6 @@
                     <h2>Purity Crafting</h2>
                     <div id="purity-recipes-container" class="crafting-recipes-container">
                         <!-- Purity recipes will be added here -->
-                    </div>
-                </div>
-                 <div id="deep-sea-crafting-container" style="display: none; margin-top: 2rem; width: 100%;">
-                    <h2>Deep Sea Crafting</h2>
-                    <div id="deep-sea-recipes-container" class="crafting-recipes-container">
-                        <!-- Deep Sea recipes will be added here -->
                     </div>
                 </div>
             </div>
@@ -1402,29 +1177,6 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Nursery Page -->
-            <div id="nursery-screen" class="nursery-page">
-                <h1>Nursery</h1>
-                <h3>Incubators</h3>
-                <div id="incubator-slots"></div>
-                <div id="egg-inventory-container" style="margin-bottom: 2rem; width: 100%; max-width: 600px;">
-                    <h3>Your Eggs</h3>
-                    <div id="egg-inventory-display" style="border: 2px solid var(--color-border); min-height: 80px; width: 100%; padding: 0.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;"></div>
-                </div>
-                <div id="pet-catalog-container">
-                    <h3>Pet Catalog</h3>
-                    <!-- Pet sections will be generated here -->
-                </div>
-            </div>
-
-            <!-- Merchant Page -->
-            <div id="merchant-screen" class="merchant-page">
-                <h1>Egg Merchant</h1>
-                <div id="pearl-display">Pearls: 0</div>
-                <div id="merchant-eggs"></div>
-            </div>
-
             
             <!-- Achievements Area Page -->
             <div id="achievements-screen" class="achievement-area-page">
@@ -1613,9 +1365,6 @@
                         <span>Kevlar: </span>
                         <span id="kevlar-count">0</span>
                     </div>
-                     <div id="kevlar-armour-item" class="inventory-item" style="display: none;">
-                        <span>Kevlar Armour</span>
-                    </div>
                     <div id="reinforced-stone-item" class="inventory-item" style="display: none;">
                         <span>Reinforced Stone: </span>
                         <span id="reinforced-stone-count">0</span>
@@ -1624,23 +1373,6 @@
                         <span>Reinforced Wood: </span>
                         <span id="reinforced-wood-count">0</span>
                     </div>
-                    <!-- Deep Dive Items -->
-                    <div id="complex-diving-gear-item" class="inventory-item" style="display: none;">
-                        <span>Complex Diving Gear</span>
-                    </div>
-                    <div id="coral-fragments-item" class="inventory-item" style="display: none;"><span>Coral Fragments: </span><span id="coral-fragments-count">0</span></div>
-                    <div id="hydrothermal-sludge-item" class="inventory-item" style="display: none;"><span>Hydrothermal Sludge: </span><span id="hydrothermal-sludge-count">0</span></div>
-                    <div id="bioluminescence-sac-item" class="inventory-item" style="display: none;"><span>Bio-Luminescence Sac: </span><span id="bioluminescence-sac-count">0</span></div>
-                    <div id="electroluminescent-filament-item" class="inventory-item" style="display: none;"><span>Electroluminescent Filament: </span><span id="electroluminescent-filament-count">0</span></div>
-                    <div id="chitinous-plating-item" class="inventory-item" style="display: none;"><span>Chitinous Plating: </span><span id="chitinous-plating-count">0</span></div>
-                    <div id="nautilus-shell-item" class="inventory-item" style="display: none;"><span>Nautilus Shell: </span><span id="nautilus-shell-count">0</span></div>
-                    <div id="ethereal-viscera-item" class="inventory-item" style="display: none;"><span>Ethereal Viscera: </span><span id="ethereal-viscera-count">0</span></div>
-                    <div id="hydrothermal-vent-mineral-item" class="inventory-item" style="display: none;"><span>Hydrothermal Vent Mineral: </span><span id="hydrothermal-vent-mineral-count">0</span></div>
-                    <div id="black-ice-core-item" class="inventory-item" style="display: none;"><span>Black Ice Core: </span><span id="black-ice-core-count">0</span></div>
-                    <div id="giant-squid-beak-item" class="inventory-item" style="display: none;"><span>Giant Squid Beak: </span><span id="giant-squid-beak-count">0</span></div>
-                    <div id="abyssal-pearl-item" class="inventory-item" style="display: none;"><span>Abyssal Pearl: </span><span id="abyssal-pearl-count">0</span></div>
-                    <div id="mythic-tooth-item" class="inventory-item" style="display: none;"><span>Mythic Tooth: </span><span id="mythic-tooth-count">0</span></div>
-                    <div id="bone-fragment-item" class="inventory-item" style="display: none;"><span>Bone Fragment: </span><span id="bone-fragment-count">0</span></div>
                 </div>
             </div>
         </div>
@@ -1686,17 +1418,6 @@
             <button id="cancel-import-button" class="modal-button">Cancel</button>
         </div>
     </div>
-    
-    <!-- Hatching Modal -->
-    <div id="hatch-modal" class="modal">
-        <div class="modal-content">
-            <h3>Hatching Pet...</h3>
-            <div id="wheel-arrow"></div>
-            <div id="wheel-container"></div>
-            <button id="hatch-result-button" class="modal-button" style="display:none;">Confirm</button>
-        </div>
-    </div>
-
     
     <!-- The music control button and audio tag -->
     <button id="music-control" class="music-control-button">Music: Off</button>
@@ -1943,23 +1664,6 @@
         const furnaceItem = document.getElementById('furnace-item');
         const screwsItem = document.getElementById('screws-item');
         const screwsCountSpan = document.getElementById('screws-count');
-        
-        // New elements for deep diving
-        const deepDiveTab = document.getElementById('deep-dive-tab');
-        const deepDiveScreen = document.getElementById('deep-dive-screen');
-        const deepDivePrepArea = document.getElementById('deep-dive-prep-area');
-        const deepToolSelectionContainer = document.getElementById('deep-tool-selection-container');
-        const beginDeepDiveButton = document.getElementById('begin-deep-dive-button');
-        const deepDiveCooldownBar = document.getElementById('cooldown-bar-deep-dive');
-        const deepDiveMinigameArea = document.getElementById('deep-dive-minigame-area');
-        const deepMinigameGrid = document.getElementById('deep-minigame-grid');
-        const deepMovesLeftSpan = document.getElementById('deep-moves-left');
-        const deepDiveHealthText = document.getElementById('deep-dive-health-text');
-        const deepDivePlayerHealthBar = document.getElementById('deep-dive-player-health-bar');
-        const deepUseBandageButton = document.getElementById('deep-use-bandage-button');
-        const deepDiveBandageCountSpan = document.getElementById('deep-dive-bandage-count');
-        const deepDiveInventoryDisplay = document.getElementById('deep-dive-inventory-display');
-        const complexDivingGearItem = document.getElementById('complex-diving-gear-item');
 
         
         // New elements for commands
@@ -2009,8 +1713,6 @@
         const reinforcedStoneCountSpan = document.getElementById('reinforced-stone-count');
         const reinforcedWoodItem = document.getElementById('reinforced-wood-item');
         const reinforcedWoodCountSpan = document.getElementById('reinforced-wood-count');
-        const kevlarArmourItem = document.getElementById('kevlar-armour-item');
-
 
         // Save/Load elements
         const saveButton = document.getElementById('save-button');
@@ -2043,21 +1745,6 @@
         
         // Timer elements
         const speedrunTimer = document.getElementById('speedrun-timer');
-        
-        // Nursery and Merchant elements
-        const nurseryTab = document.getElementById('nursery-tab');
-        const merchantTab = document.getElementById('merchant-tab');
-        const nurseryScreen = document.getElementById('nursery-screen');
-        const merchantScreen = document.getElementById('merchant-screen');
-        const incubatorSlotsContainer = document.getElementById('incubator-slots');
-        const eggInventoryDisplay = document.getElementById('egg-inventory-display');
-        const petCatalogContainer = document.getElementById('pet-catalog-container');
-        const pearlDisplay = document.getElementById('pearl-display');
-        const merchantEggsContainer = document.getElementById('merchant-eggs');
-        const hatchModal = document.getElementById('hatch-modal');
-        const wheelContainer = document.getElementById('wheel-container');
-        const hatchResultButton = document.getElementById('hatch-result-button');
-
 
 
         
@@ -2084,6 +1771,7 @@
         let isSection2 = false;
         let isSection3 = false;
         let isPlayerSwimming = false;
+        let isPlayerDiving = false;
         let soloEventTimer = null;
         let narrativeTimer = null;
         let eventQueue = [];
@@ -2103,7 +1791,6 @@
         const MAX_REINFORCED_SHELTERS = 5;
         
         // New state for diving
-        let isPlayerDiving = false;
         let hasDivingGear = false;
         let hasSpear = false;
         let hasBetterAirTank = false;
@@ -2129,22 +1816,8 @@
         const MAP_SIZE = 51; // Increased map size
         let rareEnemyPathwayChance = 0.05; // Base 5% chance, increases
         
-        // New state for deep diving
-        let isPlayerDeepDiving = false;
-        let hasComplexDivingGear = false;
-        let deepDiveMoves = 5;
-        let deepDiveInventory = [];
-        let deepDiveTools = [];
-        let deepDiveBandages = 0;
-        let deepMinigameMap = [];
-        let deepPlayerPosition = { x: 0, y: 0 };
-        
-        // New state for deep dive resources
-        let coralFragmentsCount = 0, hydrothermalSludgeCount = 0, bioluminescenceSacCount = 0, electroluminescentFilamentCount = 0, chitinousPlatingCount = 0, nautilusShellCount = 0, etherealVisceraCount = 0, hydrothermalVentMineralCount = 0, blackIceCoreCount = 0, giantSquidBeakCount = 0, abyssalPearlCount = 0, mythicToothCount = 0, boneFragmentCount = 0;
-
-        
         // New state for combat
-        let DEFAULT_MAX_PLAYER_HEALTH = 15;
+        const DEFAULT_MAX_PLAYER_HEALTH = 15;
         let MAX_PLAYER_HEALTH = DEFAULT_MAX_PLAYER_HEALTH;
         let playerHealth = MAX_PLAYER_HEALTH;
         let enemyHealth = 0;
@@ -2158,7 +1831,6 @@
         let isEnemyStunned = false;
         let enemyStunTimeout = null;
         let combatTurnCounter = 0;
-        let playerDoT = { damage: 0, duration: 0 }; // For Giant Phantom Jelly
 
         // New state for admin commands
         let isAdminMode = false;
@@ -2174,25 +1846,12 @@
         let kevlarCount = 0;
         let reinforcedStoneCount = 0;
         let reinforcedWoodCount = 0;
-        let hasKevlarArmour = false;
-        
-        // New state for Nursery/Pets
-        let hasUnlockedNursery = false;
-        let eggInventory = []; // { type, id }
-        const MAX_INCUBATORS = 2;
-        let incubators = Array(MAX_INCUBATORS).fill(null); // { egg, hatchTime }
-        let ownedPets = new Set();
-        let equippedPets = [];
-        const MAX_EQUIPPED_PETS = 2;
-
-
         
         // Cooldown durations & Timers
         const searchCooldownDuration = 700;
         let swimCooldownDuration = 90000;
         let gatherCooldownDuration = 4000;
         const diveCooldownDuration = 150000;
-        const deepDiveCooldownDuration = 120000; // 2 minutes
         const healCooldownDuration = 5000;
         const tangleCooldownDuration = 8000;
         const harpoonCooldownDuration = 3000;
@@ -2221,7 +1880,6 @@
             totalRopeCollected: 0,
             totalMetallicScrapCollected: 0,
             totalDives: 0,
-            totalDeepDives: 0,
             enemiesSlain: {}
         };
         
@@ -2283,8 +1941,6 @@
             helpful_hands: { title: "Helpful Hands", description: "You received materials from one of your workers.", rarity: "Common" },
             deep_diver: { title: "Deep Diver", description: "You crafted diving gear to explore the depths.", rarity: "Rare" },
             deep_sea_dweller: { title: "Deep-Sea Dweller", description: "You placed your first underwater habitat.", rarity: "Rare" },
-            abyss_gazer: { title: "Abyss Gazer", description: "You unlocked the Deep Dive tab.", rarity: "Legendary" },
-            first_kill_deep: { title: "First Blood of the Abyss", description: "You killed your first deep-sea creature.", rarity: "Legendary" },
             god_mode: { title: "You Little Sh*t", description: "You have enabled free crafting.", rarity: "Secret" },
             afk_lol: { title: "You didn’t think that actually worked…", description: "You triggered the AFK timer.", rarity: "Secret" },
             welcome_back: { title: "Welcome Back", description: "You loaded a previous save file.", rarity: "Legendary" }
@@ -2743,8 +2399,8 @@
 
         // Function to handle switching between screens
         function switchScreen(screen) {
-            const allScreens = [gameScreen, resourceGatheringScreen, craftingScreen, achievementsScreen, progressionScreen, workersScreen, diveScreen, deepDiveScreen, commandsScreen, saveLoadScreen, statisticsScreen, bestiaryScreen, nurseryScreen, merchantScreen];
-            const allTabs = [gameTab, resourceTab, craftingTab, achievementsTab, workersTab, diveTab, deepDiveTab, nurseryTab, merchantTab];
+            const allScreens = [gameScreen, resourceGatheringScreen, craftingScreen, achievementsScreen, progressionScreen, workersScreen, diveScreen, commandsScreen, saveLoadScreen, statisticsScreen, bestiaryScreen];
+            const allTabs = [gameTab, resourceTab, craftingTab, achievementsTab, workersTab, diveTab];
 
             allScreens.forEach(s => s.style.display = 'none');
             allTabs.forEach(t => t.classList.remove('active'));
@@ -2784,18 +2440,6 @@
                 diveTab.classList.add('active');
                 diveIndicator.style.display = 'none';
                 updateDivePrepUI();
-            } else if (screen === 'deep-dive') {
-                deepDiveScreen.style.display = 'flex';
-                deepDiveTab.classList.add('active');
-                updateDeepDivePrepUI();
-            } else if (screen === 'nursery') {
-                nurseryScreen.style.display = 'flex';
-                nurseryTab.classList.add('active');
-                updateNurseryUI();
-            } else if (screen === 'merchant') {
-                merchantScreen.style.display = 'flex';
-                merchantTab.classList.add('active');
-                updateMerchantUI();
             } else if (screen === 'commands') {
                 commandsScreen.style.display = 'flex';
             } else if (screen === 'save') {
@@ -2907,7 +2551,7 @@
         }
         
         function checkAndTriggerSoloEvent() {
-            if (isPlayerSwimming || isPlayerDiving || isPlayerDeepDiving) {
+            if (isPlayerSwimming || isPlayerDiving) {
                 eventQueue.push(soloEvents[Math.floor(Math.random() * soloEvents.length)]);
             } else {
                 triggerSoloEvent();
@@ -3109,20 +2753,6 @@
                 case 'Kevlar': kevlarCount += quantity; break;
                 case 'Reinforced Stone': reinforcedStoneCount += quantity; break;
                 case 'Reinforced Wood': reinforcedWoodCount += quantity; break;
-                // Deep Dive Items
-                case 'Coral Fragments': coralFragmentsCount += quantity; break;
-                case 'Hydrothermal Sludge': hydrothermalSludgeCount += quantity; break;
-                case 'Bio-Luminescence Sac': bioluminescenceSacCount += quantity; break;
-                case 'Electroluminescent Filament': electroluminescentFilamentCount += quantity; break;
-                case 'Chitinous Plating': chitinousPlatingCount += quantity; break;
-                case 'Nautilus Shell': nautilusShellCount += quantity; break;
-                case 'Ethereal Viscera': etherealVisceraCount += quantity; break;
-                case 'Hydrothermal Vent Mineral': hydrothermalVentMineralCount += quantity; break;
-                case 'Black Ice Core': blackIceCoreCount += quantity; break;
-                case 'Giant Squid Beak': giantSquidBeakCount += quantity; break;
-                case 'Abyssal Pearl': abyssalPearlCount += quantity; break;
-                case 'Mythic Tooth': mythicToothCount += quantity; break;
-                case 'Bone Fragment': boneFragmentCount += quantity; break;
             }
             updateAllResourceCounts();
         }
@@ -3148,18 +2778,9 @@
             rare: [
                 { name: 'Sunken Battleship', lootTable: [] },
                 { name: 'Sunken Yacht', lootTable: ['Fabric', 'Rope', 'Pearl'] },
-                { name: 'Sunken Repair Ship', lootTable: ['Metallic Scrap', 'Screws'] },
-                { name: 'Abandoned Coral Reef', lootTable: [] }
+                { name: 'Sunken Repair Ship', lootTable: ['Metallic Scrap', 'Screws'] }
             ]
         };
-
-        const merchantEggs = [
-            { type: 'common', name: 'Common Egg', cost: 100, art: '?' },
-            { type: 'complex', name: 'Complex Egg', cost: 500, art: '?' },
-            { type: 'elite', name: 'Elite Egg', cost: 1000, art: '?' },
-            { type: 'apocryphal', name: 'Apocryphal Egg', cost: 2000, art: '?' },
-            { type: 'secret', name: 'Secret Egg', cost: 5000, art: '?' }
-        ];
 
         function craftDivingGear() {
             if (isFreeCrafting || (fabricCount >= 5 && stoneCount >= 2 && metallicScrapCount >= 1 && ropeCount >= 1)) {
@@ -3336,34 +2957,8 @@
                 if (!isFreeCrafting) { fabricCount -= 100; updateAllResourceCounts(); }
                 addItemToInventory('Kevlar', 1);
                 addNarrativeLine("You wove fabric into a sheet of durable Kevlar.");
-                // Unlock Complex Diving Gear recipe on first craft
-                if (!document.getElementById('complex-diving-gear-recipe')) {
-                    addCraftingRecipe('Complex Diving Gear', '2 Kevlar, 5 Tungsten, 10 R. Stone', 'craft-complex-gear', 'complex-diving-gear-recipe', craftComplexDivingGear, 'purity-recipes-container', 'Allows for Deep Dives.');
-                    addCraftingRecipe('Kevlar Armour', '5 Kevlar, 10 Rope', 'craft-kevlar-armour', 'kevlar-armour-recipe', craftKevlarArmour, 'purity-recipes-container', 'Increases max health to 25.');
-                    craftingIndicator.style.display = 'block';
-                }
             } else { addNarrativeLine("Not enough Fabric."); }
         }
-        
-        function craftKevlarArmour() {
-            if (isFreeCrafting || (kevlarCount >= 5 && ropeCount >= 10)) {
-                if (!isFreeCrafting) {
-                    kevlarCount -= 5;
-                    ropeCount -= 10;
-                    updateAllResourceCounts();
-                }
-                hasKevlarArmour = true;
-                kevlarArmourItem.style.display = 'flex';
-                DEFAULT_MAX_PLAYER_HEALTH = 25;
-                MAX_PLAYER_HEALTH = hasGodHealth ? 500 : DEFAULT_MAX_PLAYER_HEALTH;
-                playerHealth = MAX_PLAYER_HEALTH; // Heal to new max
-                document.getElementById('kevlar-armour-recipe').style.display = 'none';
-                addNarrativeLine("You've crafted Kevlar Armour, increasing your resilience.");
-            } else {
-                addNarrativeLine("You don't have enough materials for Kevlar Armour.");
-            }
-        }
-        
         function craftReinforcedStone() {
             if (isFreeCrafting || stoneCount >= 50) {
                 if (!isFreeCrafting) { stoneCount -= 50; updateAllResourceCounts(); }
@@ -3378,26 +2973,6 @@
                 addNarrativeLine("You treated and bound wood, making it unnaturally strong.");
             } else { addNarrativeLine("Not enough Wood."); }
         }
-        
-        function craftComplexDivingGear() {
-            if (isFreeCrafting || (kevlarCount >= 2 && tungstenCount >= 5 && reinforcedStoneCount >= 10)) {
-                if (!isFreeCrafting) {
-                    kevlarCount -= 2;
-                    tungstenCount -= 5;
-                    reinforcedStoneCount -= 10;
-                    updateAllResourceCounts();
-                }
-                hasComplexDivingGear = true;
-                complexDivingGearItem.style.display = 'flex';
-                document.getElementById('complex-diving-gear-recipe').style.display = 'none';
-                addNarrativeLine("You've crafted Complex Diving Gear. A 'Deep Dive' tab is now available.");
-                deepDiveTab.style.display = 'block';
-                unlockAchievement('abyss_gazer');
-            } else {
-                addNarrativeLine("You don't have enough materials for the Complex Diving Gear.");
-            }
-        }
-
 
         function updateDivePrepUI() {
             toolSelectionContainer.innerHTML = '';
@@ -3429,25 +3004,18 @@
         function renderMinigame() {
             let gridHTML = '';
             for (let y = 0; y < MAP_SIZE; y++) {
-                let rowHTML = '';
                 for (let x = 0; x < MAP_SIZE; x++) {
                     const isSafe = safePaths.some(p => p.x === x && p.y === y);
                     const isHabitat = placedHabitats.some(h => h.x === x && h.y === y);
                     const tile = minigameMap[y][x];
-                    if (x === playerPosition.x && y === playerPosition.y) {
-                         let playerIcon = '';
-                        if (equippedPets[0]) playerIcon += `<span class="pet">${equippedPets[0].icon}</span>`;
-                        playerIcon += '<span class="player">@</span>';
-                        if (equippedPets[1]) playerIcon += `<span class="pet">${equippedPets[1].icon}</span>`;
-                        rowHTML += playerIcon;
-                    }
-                    else if (isHabitat) rowHTML += '<span class="habitat">H</span>';
-                    else if (tile.type === 'boat') rowHTML += '<span class="boat">$</span>';
-                    else if (tile.type === 'landmark') rowHTML += `<span class="landmark" data-name="${tile.details.name}">#<span class="tooltip-text">${tile.details.name}</span></span>`;
-                    else if (isSafe) rowHTML += '<span class="safe-path">.</span>';
-                    else rowHTML += '*';
+                    if (x === playerPosition.x && y === playerPosition.y) gridHTML += '<span class="player">@</span>';
+                    else if (isHabitat) gridHTML += '<span class="habitat">H</span>';
+                    else if (tile.type === 'boat') gridHTML += '<span class="boat">$</span>';
+                    else if (tile.type === 'landmark') gridHTML += `<span class="landmark" data-name="${tile.details.name}">#<span class="tooltip-text">${tile.details.name}</span></span>`;
+                    else if (isSafe) gridHTML += '<span class="safe-path">.</span>';
+                    else gridHTML += '*';
                 }
-                gridHTML += rowHTML + '\n';
+                gridHTML += '\n';
             }
             minigameGrid.innerHTML = gridHTML;
             movesLeftSpan.textContent = hasInfiniteMoves ? '∞' : diveMoves;
@@ -3474,7 +3042,7 @@
             // Reset used status for habitats at the start of a new dive
             placedHabitats.forEach(h => h.usedThisDive = false);
             
-            MAX_PLAYER_HEALTH = hasGodHealth ? 500 : (hasKevlarArmour ? 25 : 15);
+            MAX_PLAYER_HEALTH = hasGodHealth ? 500 : DEFAULT_MAX_PLAYER_HEALTH;
             playerHealth = MAX_PLAYER_HEALTH;
             diveMoves = 20;
             diveTools = [];
@@ -3508,21 +3076,13 @@
         function handlePlayerMovement(e) {
             if (isPlayerInCombat) {
                  if (e.key === '1') playerAttack('fist');
-                 else if (e.key === '2' && (diveTools.includes('spear') || deepDiveTools.includes('spear'))) playerAttack('spear');
-                 else if (e.key === '3' && (diveTools.includes('net') || deepDiveTools.includes('net'))) playerTangle();
-                 else if (e.key === '4' && (diveTools.includes('harpoon') || deepDiveTools.includes('harpoon'))) playerAttack('harpoon');
+                 else if (e.key === '2' && diveTools.includes('spear')) playerAttack('spear');
+                 else if (e.key === '3' && diveTools.includes('net')) playerTangle();
+                 else if (e.key === '4' && diveTools.includes('harpoon')) playerAttack('harpoon');
                  else if (e.key === '0') useBandage();
                 return;
             }
-            
-            if (isPlayerDiving) {
-                handleDiveMovement(e);
-            } else if (isPlayerDeepDiving) {
-                handleDeepDiveMovement(e);
-            }
-        }
-        
-        function handleDiveMovement(e) {
+
             let newX = playerPosition.x, newY = playerPosition.y;
             if (e.key === 'ArrowUp' || e.key.toLowerCase() === 'w') newY--;
             else if (e.key === 'ArrowDown' || e.key.toLowerCase() === 's') newY++;
@@ -3578,7 +3138,7 @@
             diveMinigameArea.style.display = 'none';
             divePrepArea.style.display = 'flex';
             startCooldown(beginDiveButton, diveCooldownBar, diveCooldownDuration);
-            MAX_PLAYER_HEALTH = hasKevlarArmour ? 25 : 15; // Reset health
+            MAX_PLAYER_HEALTH = DEFAULT_MAX_PLAYER_HEALTH; // Reset health
             rareEnemyPathwayChance = 0.05; // Reset rare enemy chance
             
             bandageCount += diveBandages; // Return unused bandages
@@ -3626,8 +3186,8 @@
         }
         
         // --- Landmark & Combat Logic ---
-        function openLandmark(details, isDeepDive = false) {
-             if (details.name === 'Sunken Battleship') {
+        function openLandmark(details) {
+            if (details.name === 'Sunken Battleship') {
                 showModal(() => battleshipChoiceModal.style.display = 'flex');
                 if (!hasFoundBattleship) {
                     hasFoundBattleship = true;
@@ -3638,25 +3198,6 @@
                 }
                 return;
             }
-            
-            if (details.name === 'Abandoned Coral Reef' && !hasUnlockedNursery) {
-                hasUnlockedNursery = true;
-                nurseryTab.style.display = 'block';
-                merchantTab.style.display = 'block';
-                addNarrativeLine("You've discovered a strange, vibrant coral reef. It seems to be a nursery for exotic sea life. New tabs are available.");
-                const modalFn = () => {
-                    const popup = document.createElement('div');
-                    popup.classList.add('modal');
-                    popup.style.display = 'flex';
-                    popup.innerHTML = `<div class="modal-content"><p>You have unlocked the Nursery and Egg Merchant tabs!</p></div>`;
-                    document.body.appendChild(popup);
-                    setTimeout(() => {
-                        popup.remove();
-                    }, 3000); // Popup disappears after 3 seconds
-                };
-                showModal(modalFn);
-            }
-
 
              if (details.name === 'Sunken Repair Ship' && !hasFoundRepairShip) {
                 showRepairShipRecipes();
@@ -3671,9 +3212,7 @@
                 };
                 showModal(modalFn);
             }
-            
-            let currentInventory = isDeepDive ? deepDiveInventory : diveInventory;
-            let tempDiveInv = JSON.parse(JSON.stringify(currentInventory)); // Create a temporary copy for this interaction
+            let tempDiveInv = JSON.parse(JSON.stringify(diveInventory)); // Create a temporary copy for this interaction
             
             const renderLandmark = (secondPhase = false) => {
                 let lootHTML = `<h3>${secondPhase ? 'Further Exploration' : 'You explored the'} ${details.name}</h3>`;
@@ -3690,7 +3229,7 @@
                     lootHTML += `<button class="modal-button choice-button" data-item="${opt.item}" data-quantity="${opt.quantity}">${opt.quantity} ${opt.item}</button>`;
                 });
                 lootHTML += '</div><div id="landmark-actions">';
-                if (!secondPhase && !isDeepDive) lootHTML += `<button id="explore-further" class="modal-button">Explore Further</button>`;
+                if (!secondPhase) lootHTML += `<button id="explore-further" class="modal-button">Explore Further</button>`;
                 lootHTML += `<button id="confirm-landmark" class="modal-button">Confirm & Leave</button></div>`;
                 landmarkModalContent.innerHTML = lootHTML;
                 
@@ -3708,7 +3247,7 @@
                     });
                 });
 
-                if (!secondPhase && !isDeepDive) {
+                if (!secondPhase) {
                     document.getElementById('explore-further').addEventListener('click', () => {
                         diveInventory = tempDiveInv; // Save current choices before exploring
                         if (Math.random() < 0.18) { // 18% chance for rare enemy
@@ -3723,13 +3262,9 @@
                 }
 
                 document.getElementById('confirm-landmark').addEventListener('click', () => {
-                    if (isDeepDive) {
-                        deepDiveInventory = tempDiveInv;
-                    } else {
-                        diveInventory = tempDiveInv;
-                    }
+                    diveInventory = tempDiveInv; // Finalize inventory
                     landmarkModalContainer.style.display = 'none';
-                    if (isDeepDive) renderDeepDiveMinigame(); else renderMinigame();
+                    renderMinigame();
                 }, { once: true });
             };
             
@@ -3780,17 +3315,13 @@
         }
 
         function useBandage() {
-            let currentBandages = isPlayerDeepDiving ? deepDiveBandages : diveBandages;
-            
             if (isHealOnCooldown && isPlayerInCombat) addCombatLog("Bandage is on cooldown.");
-            else if (currentBandages <= 0) addCombatLog("You have no bandages.");
+            else if (diveBandages <= 0) addCombatLog("You have no bandages.");
             else if (playerHealth >= MAX_PLAYER_HEALTH) addCombatLog("You are already at full health.");
             else {
                 const healedAmount = Math.min(3, MAX_PLAYER_HEALTH - playerHealth);
                 playerHealth += healedAmount;
-                
-                if(isPlayerDeepDiving) deepDiveBandages--; else diveBandages--;
-                
+                diveBandages--;
                 if (isPlayerInCombat) {
                     addCombatLog(`You used a bandage and healed for ${healedAmount} HP.`);
                     isHealOnCooldown = true;
@@ -3799,7 +3330,7 @@
                     updateHealthBars();
                 } else {
                     addNarrativeLine(`You used a bandage and healed for ${healedAmount} HP.`);
-                    if(isPlayerDeepDiving) renderDeepDiveMinigame(); else renderMinigame();
+                    renderMinigame();
                 }
             }
         }
@@ -3807,17 +3338,10 @@
         function startCombat(enemyData, noLoot = false) {
             isPlayerInCombat = true;
             currentEnemy = { ...enemyData, noLoot };
-            if (currentEnemy.special) {
-                currentEnemy.special.lastUsed = -999; // Ensure special can be used on first turn
-            }
             combatTurnCounter = 0;
             enemyHealth = currentEnemy.health;
             maxEnemyHealth = currentEnemy.health;
-            
-            // Add to bestiary if it's a new encounter
-            const allEnemies = {...enemies, ...deepDiveEnemies};
-            const enemyId = Object.keys(allEnemies).find(key => allEnemies[key].name === enemyData.name);
-            if(enemyId) encounteredEnemies.add(enemyId);
+            encounteredEnemies.add(currentEnemy.id);
             
             showModal(() => {
                 combatModal.style.display = 'flex';
@@ -3825,10 +3349,9 @@
                 updateHealthBars();
                 combatLog.innerHTML = `<div>A wild ${currentEnemy.name} appears!</div>`;
                 
-                let currentTools = isPlayerDeepDiving ? deepDiveTools : diveTools;
-                spearAttackButton.style.display = currentTools.includes('spear') ? 'inline-block' : 'none';
-                tangleButton.style.display = currentTools.includes('net') ? 'inline-block' : 'none';
-                harpoonAttackButton.style.display = currentTools.includes('harpoon') && harpoonAmmoCount > 0 ? 'inline-block' : 'none';
+                spearAttackButton.style.display = diveTools.includes('spear') ? 'inline-block' : 'none';
+                tangleButton.style.display = diveTools.includes('net') ? 'inline-block' : 'none';
+                harpoonAttackButton.style.display = diveTools.includes('harpoon') && harpoonAmmoCount > 0 ? 'inline-block' : 'none';
                 
                 enemyAttackInterval = setInterval(enemyAttack, currentEnemy.cooldown);
             });
@@ -3892,28 +3415,27 @@
         function enemyAttack() {
             if (isEnemyStunned || isGamePaused) return;
             combatTurnCounter++;
-
-            // Handle player DoT
-            if (playerDoT.duration > 0) {
-                playerHealth -= playerDoT.damage;
-                addCombatLog(`You take ${playerDoT.damage} damage from Ethereal Envelopment.`);
-                playerDoT.duration--;
-                if (playerDoT.duration <= 0) addCombatLog("The ethereal effect fades.");
-                updateHealthBars();
-                if (playerHealth <= 0) { endCombat('loss'); return; }
-            }
             
-            // Check for special moves
-            if (currentEnemy.special && (combatTurnCounter - currentEnemy.special.lastUsed) * currentEnemy.cooldown >= currentEnemy.special.cooldown) {
-                currentEnemy.special.lastUsed = combatTurnCounter;
-                handleEnemySpecial(currentEnemy.special.name);
+            if (currentEnemy.special === 'whip' && combatTurnCounter > 1) {
+                currentEnemy.special = null;
+                isPlayerStunned = true;
+                fistAttackButton.classList.add('stunned-button');
+                spearAttackButton.classList.add('stunned-button');
+                addCombatLog(`The ${currentEnemy.name} whips its leg, stunning you!`);
+                setTimeout(() => { 
+                    if(!isGamePaused) { 
+                        isPlayerStunned = false; 
+                        fistAttackButton.classList.remove('stunned-button');
+                        spearAttackButton.classList.remove('stunned-button');
+                        addCombatLog("You are no longer stunned."); 
+                    } 
+                }, 3000);
                 return;
             }
-            
-            if (currentEnemy.special2 && (combatTurnCounter - currentEnemy.special2.lastUsed) * currentEnemy.cooldown >= currentEnemy.special2.cooldown) {
-                currentEnemy.special2.lastUsed = combatTurnCounter;
-                handleEnemySpecial(currentEnemy.special2.name);
-                return;
+            if (currentEnemy.special === 'headbutt' && combatTurnCounter % 5 === 0) {
+                isFistDisabled = true;
+                addCombatLog(`The ${currentEnemy.name} headbutts you, jarring your arms!`);
+                setTimeout(() => { if(!isGamePaused) { isFistDisabled = false; addCombatLog("You can use your fists again."); } }, 3000);
             }
 
             if (Math.random() < 0.2) {
@@ -3946,17 +3468,11 @@
                 enemyStunTimeout = null;
             }
             isPlayerInCombat = false;
-            playerDoT = { damage: 0, duration: 0 }; // Clear any DoT
             
             if (result === 'win') {
                 const enemyType = currentEnemy.name;
                 if (!gameStats.enemiesSlain[enemyType]) gameStats.enemiesSlain[enemyType] = 0;
                 gameStats.enemiesSlain[enemyType]++;
-                
-                if (isPlayerDeepDiving && !unlockedAchievements.has('first_kill_deep')) {
-                    unlockAchievement('first_kill_deep');
-                }
-
 
                 setTimeout(() => {
                     combatModal.style.display = 'none';
@@ -3971,12 +3487,12 @@
                 setTimeout(() => {
                     combatModal.style.display = 'none';
                     addNarrativeLine("You were defeated and blacked out...");
-                    if (isPlayerDeepDiving) endDeepDive(false); else endDive(false);
+                    endDive(false);
                 }, 1500);
             } else if (result === 'flee') {
                  setTimeout(() => {
                     combatModal.style.display = 'none';
-                    if (isPlayerDeepDiving) renderDeepDiveMinigame(); else renderMinigame();
+                    renderMinigame();
                 }, 1500);
             }
         }
@@ -3985,51 +3501,23 @@
             const enemyType = currentEnemy.name;
             let droppedItem, dropQuantity;
             
-            // Regular Dive Loot
-            if (Object.values(enemies).some(e => e.name === enemyType)) {
-                 if (['Colossal Sea Spider', 'Whalefish'].includes(enemyType)) {
-                    if (Math.random() < 0.45) {
-                        const purityMaterials = ['Tungsten', 'Kevlar', 'Reinforced Stone', 'Reinforced Wood'];
-                        droppedItem = purityMaterials[Math.floor(Math.random() * purityMaterials.length)];
-                        dropQuantity = 1; // Only drops 1
-                    } else {
-                        const dropTable = ['Stone', 'Fabric', 'Rope', 'Metallic Scrap'];
-                        droppedItem = dropTable[Math.floor(Math.random() * dropTable.length)];
-                        dropQuantity = Math.floor(Math.random() * 6) + 5;
-                    }
+            if (['Colossal Sea Spider', 'Whalefish'].includes(enemyType)) {
+                if (Math.random() < 0.45) {
+                    const purityMaterials = ['Tungsten', 'Kevlar', 'Reinforced Stone', 'Reinforced Wood'];
+                    droppedItem = purityMaterials[Math.floor(Math.random() * purityMaterials.length)];
+                    dropQuantity = 1; // Only drops 1
                 } else {
                     const dropTable = ['Stone', 'Fabric', 'Rope', 'Metallic Scrap'];
                     droppedItem = dropTable[Math.floor(Math.random() * dropTable.length)];
-                    dropQuantity = (['Viperfish', 'Gulper Eel', 'Deep-Sea Catshark'].includes(enemyType)) ? Math.floor(Math.random() * 4) + 5 : Math.floor(Math.random() * 3) + 1;
+                    dropQuantity = Math.floor(Math.random() * 6) + 5;
                 }
-            } 
-            // Deep Dive Loot
-            else {
-                const drop = currentEnemy.drops[Math.floor(Math.random() * currentEnemy.drops.length)];
-                droppedItem = drop.item;
-                dropQuantity = Math.floor(Math.random() * (drop.max - drop.min + 1)) + drop.min;
-                
-                // Pearl Drop Logic
-                if (hasUnlockedNursery) {
-                    let pearlDrop = 0;
-                    const rarity = Object.values(deepDiveEnemies).find(e => e.name === enemyType)?.rarity || 'Common';
-                    switch(rarity) {
-                        case 'Common': pearlDrop = Math.floor(Math.random() * 5) + 1; break;
-                        case 'Uncommon': pearlDrop = Math.floor(Math.random() * 6) + 10; break;
-                        case 'Rare': pearlDrop = Math.floor(Math.random() * 11) + 25; break;
-                        case 'Epic': pearlDrop = 40; break;
-                        case 'Legendary': 
-                            pearlDrop = 50;
-                            if (Math.random() < 0.10) pearlDrop += 30;
-                            break;
-                    }
-                    pearlCount += pearlDrop;
-                    addNarrativeLine(`The creature dropped ${pearlDrop} pearls.`);
-                }
+            } else {
+                const dropTable = ['Stone', 'Fabric', 'Rope', 'Metallic Scrap'];
+                droppedItem = dropTable[Math.floor(Math.random() * dropTable.length)];
+                dropQuantity = (['Viperfish', 'Gulper Eel', 'Deep-Sea Catshark'].includes(enemyType)) ? Math.floor(Math.random() * 4) + 5 : Math.floor(Math.random() * 3) + 1;
             }
 
-            let currentInventory = isPlayerDeepDiving ? deepDiveInventory : diveInventory;
-            const leftover = addToDiveInventory(droppedItem, dropQuantity, currentInventory);
+            const leftover = addToDiveInventory(droppedItem, dropQuantity, diveInventory);
             const collectedAmount = dropQuantity - leftover;
 
             const modalFn = () => {
@@ -4044,7 +3532,7 @@
 
                 document.getElementById('close-loot-modal').addEventListener('click', () => {
                     lootModal.style.display = 'none';
-                    if (isPlayerDeepDiving) renderDeepDiveMinigame(); else renderMinigame();
+                    renderMinigame();
                 }, { once: true });
             };
             showModal(modalFn);
@@ -4053,14 +3541,10 @@
         function updateHealthBars() {
             playerHealth = Math.max(0, playerHealth);
             const playerHealthPercent = (playerHealth / MAX_PLAYER_HEALTH) * 100;
-            
-            // Update all health displays
             playerHealthBar.style.width = `${playerHealthPercent}%`;
             divePlayerHealthBar.style.width = `${playerHealthPercent}%`;
-            deepDivePlayerHealthBar.style.width = `${playerHealthPercent}%`;
             playerHealthText.textContent = `${playerHealth} / ${MAX_PLAYER_HEALTH}`;
             diveHealthText.textContent = `${playerHealth} / ${MAX_PLAYER_HEALTH}`;
-            deepDiveHealthText.textContent = `${playerHealth} / ${MAX_PLAYER_HEALTH}`;
             
             if (isPlayerInCombat) {
                 enemyHealth = Math.max(0, enemyHealth);
@@ -4116,9 +3600,8 @@
             const gameState = {
                 resources: { wood: woodCount, stone: stoneCount, fabric: fabricCount, rope: ropeCount, scrap: metallicScrapCount, bandage: bandageCount, pearl: pearlCount, ammo: harpoonAmmoCount, screws: screwsCount },
                 purity: { tungsten: tungstenCount, kevlar: kevlarCount, rStone: reinforcedStoneCount, rWood: reinforcedWoodCount },
-                deepResources: { coral: coralFragmentsCount, sludge: hydrothermalSludgeCount, sac: bioluminescenceSacCount, filament: electroluminescentFilamentCount, plating: chitinousPlatingCount, shell: nautilusShellCount, viscera: etherealVisceraCount, mineral: hydrothermalVentMineralCount, core: blackIceCoreCount, beak: giantSquidBeakCount, pearl: abyssalPearlCount, tooth: mythicToothCount, bone: boneFragmentCount },
                 flags: { search: searchCount, isFree, axeheadFound, hasWoodpile: hasUnlitWoodpile, hasLiquid: hasFlammableLiquid, hasMatch, isSection2, isSection3, fireHint: hasShownFireHint, foundRepairShip: hasFoundRepairShip, foundBattleship: hasFoundBattleship },
-                crafted: { gear: hasDivingGear, spear: hasSpear, tank: hasBetterAirTank, gun: hasHarpoonGun, net: hasFishingNet, diveBag: hasDiveBag, furnace: hasFurnace, complexGear: hasComplexDivingGear, kevlarArmour: hasKevlarArmour },
+                crafted: { gear: hasDivingGear, spear: hasSpear, tank: hasBetterAirTank, gun: hasHarpoonGun, net: hasFishingNet, diveBag: hasDiveBag, furnace: hasFurnace },
                 workers: { total: totalWorkers, idle: idleWorkers, wood: woodGatherers, swim: swimmers, shelters: sheltersBuilt, rShelters: reinforcedSheltersBuilt },
                 achievements: Array.from(unlockedAchievements),
                 admin: { mode: isAdminMode, free: isFreeCrafting, fast: isCooldownHacked, infMoves: hasInfiniteMoves, godHealth: hasGodHealth, noEnemies: noEnemies, unlocked: Array.from(unlockedAdminCommands) },
@@ -4126,8 +3609,7 @@
                 habitats: { built: habitatsBuilt, placed: placedHabitats },
                 stats: gameStats,
                 time: gameTime,
-                enemies: Array.from(encounteredEnemies),
-                nursery: { unlocked: hasUnlockedNursery, eggs: eggInventory, incubators: incubators, pets: Array.from(ownedPets), equipped: equippedPets }
+                enemies: Array.from(encounteredEnemies)
             };
             exportTextarea.value = btoa(JSON.stringify(gameState));
         }
@@ -4145,11 +3627,8 @@
                 
                 woodCount = savedState.resources.wood || 0; stoneCount = savedState.resources.stone || 0; fabricCount = savedState.resources.fabric || 0; ropeCount = savedState.resources.rope || 0; metallicScrapCount = savedState.resources.scrap || 0; bandageCount = savedState.resources.bandage || 0; pearlCount = savedState.resources.pearl || 0; harpoonAmmoCount = savedState.resources.ammo || 0; screwsCount = savedState.resources.screws || 0;
                 tungstenCount = savedState.purity.tungsten || 0; kevlarCount = savedState.purity.kevlar || 0; reinforcedStoneCount = savedState.purity.rStone || 0; reinforcedWoodCount = savedState.purity.rWood || 0;
-                if(savedState.deepResources) {
-                    coralFragmentsCount = savedState.deepResources.coral || 0; hydrothermalSludgeCount = savedState.deepResources.sludge || 0; bioluminescenceSacCount = savedState.deepResources.sac || 0; electroluminescentFilamentCount = savedState.deepResources.filament || 0; chitinousPlatingCount = savedState.deepResources.plating || 0; nautilusShellCount = savedState.deepResources.shell || 0; etherealVisceraCount = savedState.deepResources.viscera || 0; hydrothermalVentMineralCount = savedState.deepResources.mineral || 0; blackIceCoreCount = savedState.deepResources.core || 0; giantSquidBeakCount = savedState.deepResources.beak || 0; abyssalPearlCount = savedState.deepResources.pearl || 0; mythicToothCount = savedState.deepResources.tooth || 0; boneFragmentCount = savedState.deepResources.bone || 0;
-                }
                 searchCount = savedState.flags.search || 0; isFree = savedState.flags.isFree || false; axeheadFound = savedState.flags.axeheadFound || false; hasUnlitWoodpile = savedState.flags.hasWoodpile || false; hasFlammableLiquid = savedState.flags.hasLiquid || false; hasMatch = savedState.flags.hasMatch || false; isSection2 = savedState.flags.isSection2 || false; isSection3 = savedState.flags.isSection3 || false; hasShownFireHint = savedState.flags.fireHint || false; hasFoundRepairShip = savedState.flags.foundRepairShip || false; hasFoundBattleship = savedState.flags.foundBattleship || false;
-                hasDivingGear = savedState.crafted.gear || false; hasSpear = savedState.crafted.spear || false; hasBetterAirTank = savedState.crafted.tank || false; hasHarpoonGun = savedState.crafted.gun || false; hasFishingNet = savedState.crafted.net || false; hasDiveBag = savedState.crafted.diveBag || false; hasFurnace = savedState.crafted.furnace || false; hasComplexDivingGear = savedState.crafted.complexGear || false; hasKevlarArmour = savedState.crafted.kevlarArmour || false;
+                hasDivingGear = savedState.crafted.gear || false; hasSpear = savedState.crafted.spear || false; hasBetterAirTank = savedState.crafted.tank || false; hasHarpoonGun = savedState.crafted.gun || false; hasFishingNet = savedState.crafted.net || false; hasDiveBag = savedState.crafted.diveBag || false; hasFurnace = savedState.crafted.furnace || false;
                 totalWorkers = savedState.workers.total || 0; woodGatherers = savedState.workers.wood || 0; swimmers = savedState.workers.swim || 0; sheltersBuilt = savedState.workers.shelters || 0; reinforcedSheltersBuilt = savedState.workers.rShelters || 0;
                 unlockedAchievements = new Set(savedState.achievements || []);
                 if (savedState.admin) {
@@ -4162,13 +3641,6 @@
                 gameStats = savedState.stats || { totalWoodCollected: 0, enemiesSlain: {} };
                 gameTime = savedState.time || 0;
                 encounteredEnemies = new Set(savedState.enemies || []);
-                if (savedState.nursery) {
-                    hasUnlockedNursery = savedState.nursery.unlocked || false;
-                    eggInventory = savedState.nursery.eggs || [];
-                    incubators = savedState.nursery.incubators || Array(MAX_INCUBATORS).fill(null);
-                    ownedPets = new Set(savedState.nursery.pets || []);
-                    equippedPets = savedState.nursery.equipped || [];
-                }
 
 
                 updateUIFromLoad();
@@ -4194,18 +3666,12 @@
             fishingNetItem.style.display = hasFishingNet ? 'flex' : 'none';
             diveBagItem.style.display = hasDiveBag ? 'flex' : 'none';
             furnaceItem.style.display = hasFurnace ? 'flex' : 'none';
-            complexDivingGearItem.style.display = hasComplexDivingGear ? 'flex' : 'none';
-            kevlarArmourItem.style.display = hasKevlarArmour ? 'flex' : 'none';
-            if(hasKevlarArmour) DEFAULT_MAX_PLAYER_HEALTH = 25;
 
 
             if (axeheadFound) navigationTabs.style.display = 'flex';
             swimButton.style.display = hasMatch ? 'block' : 'none';
             workersTab.style.display = totalWorkers > 0 ? 'block' : 'none';
             diveTab.style.display = hasDivingGear ? 'block' : 'none';
-            deepDiveTab.style.display = hasComplexDivingGear ? 'block' : 'none';
-            nurseryTab.style.display = hasUnlockedNursery ? 'block' : 'none';
-            merchantTab.style.display = hasUnlockedNursery ? 'block' : 'none';
             updateWorkerStats();
             
             // Admin toggles from save
@@ -4254,32 +3720,12 @@
                  addCraftingRecipe('Kevlar', '100 Fabric', 'craft-kevlar', 'kevlar-recipe', craftKevlar, 'purity-recipes-container');
                  addCraftingRecipe('Reinforced Stone', '50 Stone', 'craft-r-stone', 'r-stone-recipe', craftReinforcedStone, 'purity-recipes-container');
                  addCraftingRecipe('Reinforced Wood', '50 Wood', 'craft-r-wood', 'r-wood-recipe', craftReinforcedWood, 'purity-recipes-container');
-                 if (kevlarCount > 0 && !hasComplexDivingGear) {
-                    addCraftingRecipe('Complex Diving Gear', '2 Kevlar, 5 Tungsten, 10 R. Stone', 'craft-complex-gear', 'complex-diving-gear-recipe', craftComplexDivingGear, 'purity-recipes-container', 'Allows for Deep Dives.');
-                 }
-                 if (kevlarCount > 0 && !hasKevlarArmour) {
-                    addCraftingRecipe('Kevlar Armour', '5 Kevlar, 10 Rope', 'craft-kevlar-armour', 'kevlar-armour-recipe', craftKevlarArmour, 'purity-recipes-container', 'Increases max health to 25.');
-                 }
             }
         }
 
         function updateAllResourceCounts() {
             woodCountSpan.textContent = woodCount; stoneCountSpan.textContent = stoneCount; fabricCountSpan.textContent = fabricCount; ropeCountSpan.textContent = ropeCount; metallicScrapCountSpan.textContent = metallicScrapCount; bandageCountSpan.textContent = bandageCount; pearlCountSpan.textContent = pearlCount; harpoonAmmoCountSpan.textContent = harpoonAmmoCount; tungstenCountSpan.textContent = tungstenCount; kevlarCountSpan.textContent = kevlarCount; reinforcedStoneCountSpan.textContent = reinforcedStoneCount; reinforcedWoodCountSpan.textContent = reinforcedWoodCount; screwsCountSpan.textContent = screwsCount;
             woodItem.style.display = woodCount > 0 ? 'flex' : 'none'; stoneItem.style.display = stoneCount > 0 ? 'flex' : 'none'; fabricItem.style.display = fabricCount > 0 ? 'flex' : 'none'; ropeItem.style.display = ropeCount > 0 ? 'flex' : 'none'; metallicScrapItem.style.display = metallicScrapCount > 0 ? 'flex' : 'none'; bandageItem.style.display = bandageCount > 0 ? 'flex' : 'none'; pearlItem.style.display = pearlCount > 0 ? 'flex' : 'none'; harpoonAmmoItem.style.display = harpoonAmmoCount > 0 ? 'flex' : 'none'; tungstenItem.style.display = tungstenCount > 0 ? 'flex' : 'none'; kevlarItem.style.display = kevlarCount > 0 ? 'flex' : 'none'; reinforcedStoneItem.style.display = reinforcedStoneCount > 0 ? 'flex' : 'none'; reinforcedWoodItem.style.display = reinforcedWoodCount > 0 ? 'flex' : 'none'; screwsItem.style.display = screwsCount > 0 ? 'flex' : 'none';
-            // Deep Dive Items
-            document.getElementById('coral-fragments-count').textContent = coralFragmentsCount; document.getElementById('coral-fragments-item').style.display = coralFragmentsCount > 0 ? 'flex' : 'none';
-            document.getElementById('hydrothermal-sludge-count').textContent = hydrothermalSludgeCount; document.getElementById('hydrothermal-sludge-item').style.display = hydrothermalSludgeCount > 0 ? 'flex' : 'none';
-            document.getElementById('bioluminescence-sac-count').textContent = bioluminescenceSacCount; document.getElementById('bioluminescence-sac-item').style.display = bioluminescenceSacCount > 0 ? 'flex' : 'none';
-            document.getElementById('electroluminescent-filament-count').textContent = electroluminescentFilamentCount; document.getElementById('electroluminescent-filament-item').style.display = electroluminescentFilamentCount > 0 ? 'flex' : 'none';
-            document.getElementById('chitinous-plating-count').textContent = chitinousPlatingCount; document.getElementById('chitinous-plating-item').style.display = chitinousPlatingCount > 0 ? 'flex' : 'none';
-            document.getElementById('nautilus-shell-count').textContent = nautilusShellCount; document.getElementById('nautilus-shell-item').style.display = nautilusShellCount > 0 ? 'flex' : 'none';
-            document.getElementById('ethereal-viscera-count').textContent = etherealVisceraCount; document.getElementById('ethereal-viscera-item').style.display = etherealVisceraCount > 0 ? 'flex' : 'none';
-            document.getElementById('hydrothermal-vent-mineral-count').textContent = hydrothermalVentMineralCount; document.getElementById('hydrothermal-vent-mineral-item').style.display = hydrothermalVentMineralCount > 0 ? 'flex' : 'none';
-            document.getElementById('black-ice-core-count').textContent = blackIceCoreCount; document.getElementById('black-ice-core-item').style.display = blackIceCoreCount > 0 ? 'flex' : 'none';
-            document.getElementById('giant-squid-beak-count').textContent = giantSquidBeakCount; document.getElementById('giant-squid-beak-item').style.display = giantSquidBeakCount > 0 ? 'flex' : 'none';
-            document.getElementById('abyssal-pearl-count').textContent = abyssalPearlCount; document.getElementById('abyssal-pearl-item').style.display = abyssalPearlCount > 0 ? 'flex' : 'none';
-            document.getElementById('mythic-tooth-count').textContent = mythicToothCount; document.getElementById('mythic-tooth-item').style.display = mythicToothCount > 0 ? 'flex' : 'none';
-            document.getElementById('bone-fragment-count').textContent = boneFragmentCount; document.getElementById('bone-fragment-item').style.display = boneFragmentCount > 0 ? 'flex' : 'none';
         }
 
         function updateStatisticsScreen() {
@@ -4292,7 +3738,6 @@
                 <p>Total Metallic Scrap Gathered: ${gameStats.totalMetallicScrapCollected || 0}</p>
                 <h2>Combat</h2>
                 <p>Total Dives: ${gameStats.totalDives || 0}</p>
-                <p>Total Deep Dives: ${gameStats.totalDeepDives || 0}</p>
             `;
             let enemyStatsHTML = '<h3>Enemies Slain:</h3>';
             for (const enemy in gameStats.enemiesSlain) {
@@ -4308,9 +3753,8 @@
                 return;
             }
             
-            const allEnemies = {...enemies, ...deepDiveEnemies};
             for (const enemyId of encounteredEnemies) {
-                const enemy = allEnemies[enemyId];
+                const enemy = enemies[enemyId];
                 if (enemy) {
                     const entry = document.createElement('div');
                     entry.classList.add('bestiary-entry');
@@ -4319,8 +3763,7 @@
                         <p><b>Health:</b> ${enemy.health}</p>
                         <p><b>Damage:</b> ${enemy.minDmg} - ${enemy.maxDmg}</p>
                         <p><b>Attack Speed:</b> ${enemy.cooldown / 1000} seconds</p>
-                        ${enemy.special ? `<p><b>Special:</b> ${enemy.special.description}</p>` : ''}
-                        ${enemy.special2 ? `<p><b>Special 2:</b> ${enemy.special2.description}</p>` : ''}
+                        ${enemy.special ? `<p><b>Special:</b> ${enemy.special}</p>` : ''}
                     `;
                     bestiaryContainer.appendChild(entry);
                 }
@@ -4393,298 +3836,6 @@
             clickSound.currentTime = 0;
             clickSound.play();
         }
-        
-        // --- Deep Dive Logic ---
-        
-        const deepDiveEnemies = {
-            snipeEel: { name: 'Snipe Eel', health: 10, minDmg: 1, maxDmg: 2, cooldown: 2000, attackName: 'Bite', rarity: 'Common', drops: [{item: 'Coral Fragments', min: 1, max: 3}, {item: 'Hydrothermal Sludge', min: 1, max: 2}] },
-            squidworm: { name: 'Squidworm', health: 20, minDmg: 0, maxDmg: 0, cooldown: 2000, attackName: 'Wiggle', rarity: 'Common', special: { name: 'Tentacle Barrage', cooldown: 2000, damage: 1, hits: 4, description: 'Launches a flurry of worm-like tentacles.' }, drops: [{item: 'Coral Fragments', min: 2, max: 4}, {item: 'Bio-Luminescence Sac', min: 1, max: 1}] },
-            dragonfish: { name: 'Dragonfish', health: 25, minDmg: 3, maxDmg: 3, cooldown: 3000, attackName: 'Bite', rarity: 'Uncommon', special: { name: 'Bioluminescent Flash', cooldown: 8000, damage: 2, stun: true, description: 'Flashes its light organ, stunning the player.' }, drops: [{item: 'Bio-Luminescence Sac', min: 1, max: 2}, {item: 'Electroluminescent Filament', min: 1, max: 1}] },
-            octopusSquid: { name: 'Octopus Squid', health: 30, minDmg: 0, maxDmg: 0, cooldown: 3000, attackName: 'Stare', rarity: 'Uncommon', special: { name: 'Jet Propulsion Burst', cooldown: 3000, damage: 7, description: 'Uses a powerful jet to ram the player.' }, drops: [{item: 'Chitinous Plating', min: 1, max: 1}, {item: 'Electroluminescent Filament', min: 1, max: 2}] },
-            bigfinSquid: { name: 'Bigfin Squid', health: 35, minDmg: 2, maxDmg: 3, cooldown: 3000, attackName: 'Whip', rarity: 'Uncommon', special: { name: 'Trawl Net', cooldown: 7000, damage: 5, description: 'Extends its long arms in a cone-shaped attack.' }, drops: [{item: 'Chitinous Plating', min: 1, max: 2}, {item: 'Bio-Luminescence Sac', min: 1, max: 2}] },
-            frilledShark: { name: 'Frilled Shark', health: 40, minDmg: 3, maxDmg: 4, cooldown: 2500, attackName: 'Bite', rarity: 'Uncommon', special: { name: 'Serpent Lunge', cooldown: 5000, damage: 7, description: 'Coils and then lunges with its jaw wide open.' }, drops: [{item: 'Chitinous Plating', min: 2, max: 3}, {item: 'Hydrothermal Sludge', min: 1, max: 3}] },
-            ghostshark: { name: 'Ghostshark', health: 45, minDmg: 4, maxDmg: 5, cooldown: 3000, attackName: 'Phase Bite', rarity: 'Rare', special: { name: 'Spectral Phase', cooldown: 9000, damage: 8, description: 'Turns semi-transparent and charges through the player.' }, drops: [{item: 'Nautilus Shell', min: 1, max: 1}, {item: 'Ethereal Viscera', min: 1, max: 2}] },
-            giantPhantomJelly: { name: 'Giant Phantom Jelly', health: 50, minDmg: 1, maxDmg: 2, cooldown: 2000, attackName: 'Brush', rarity: 'Rare', special: { name: 'Ethereal Envelopment', cooldown: 4000, damage: 4, duration: 3, description: 'Envelops the player, dealing damage over time.' }, drops: [{item: 'Ethereal Viscera', min: 1, max: 3}, {item: 'Bio-Luminescence Sac', min: 2, max: 3}] },
-            deepseaLizardfish: { name: 'Deep-sea Lizardfish', health: 50, minDmg: 5, maxDmg: 6, cooldown: 4000, attackName: 'Chomp', rarity: 'Rare', special: { name: 'Impale', cooldown: 10000, damage: 9, description: 'Dashes forward, impaling the player.' }, drops: [{item: 'Hydrothermal Sludge', min: 2, max: 4}, {item: 'Nautilus Shell', min: 1, max: 1}] },
-            goblinShark: { name: 'Goblin Shark', health: 55, minDmg: 6, maxDmg: 7, cooldown: 3500, attackName: 'Bite', rarity: 'Epic', special: { name: 'Jaw Protrusion', cooldown: 12000, damage: 9, description: 'Rapidly extends its jaw forward in a surprise attack.' }, drops: [{item: 'Hydrothermal Vent Mineral', min: 1, max: 1}, {item: 'Black Ice Core', min: 1, max: 1}] },
-            oarfish: { name: 'Oarfish', health: 60, minDmg: 5, maxDmg: 5, cooldown: 2000, attackName: 'Slap', rarity: 'Epic', special: { name: 'Serpent\'s Whip', cooldown: 4000, damage: 10, description: 'Lashes out with its immense tail.' }, drops: [{item: 'Black Ice Core', min: 1, max: 2}, {item: 'Chitinous Plating', min: 2, max: 4}] },
-            giantIsopod: { name: 'Giant Isopod', health: 35, minDmg: 2, maxDmg: 3, cooldown: 2500, attackName: 'Nip', rarity: 'Epic', special: { name: 'Defensive Roll', cooldown: 10000, damage: 6, description: 'Curls into a spiky ball and rolls at the player.' }, drops: [{item: 'Hydrothermal Vent Mineral', min: 1, max: 2}, {item: 'Chitinous Plating', min: 3, max: 5}] },
-            greatWhite: { name: 'Great White', health: 80, minDmg: 6, maxDmg: 7, cooldown: 3000, attackName: 'Bite', rarity: 'Legendary', special: { name: 'Apex Charge', cooldown: 8000, damage: 8, description: 'Charges directly at the player.' }, special2: { name: 'Tearing Bite', cooldown: 15000, damage: 10, description: 'A massive, tearing bite.' }, drops: [{item: 'Giant Squid Beak', min: 1, max: 1}, {item: 'Abyssal Pearl', min: 1, max: 1}, {item: 'Mythic Tooth', min: 1, max: 1}] },
-            whaleShark: { name: 'Whale Shark', health: 75, minDmg: 1, maxDmg: 2, cooldown: 1500, attackName: 'Nudge', rarity: 'Legendary', special: { name: 'Vortex Gulp', cooldown: 12000, damage: 2, duration: 5, description: 'Creates a vortex, pulling the player in for damage.' }, drops: [{item: 'Abyssal Pearl', min: 1, max: 2}, {item: 'Bone Fragment', min: 1, max: 3}, {item: 'Mythic Tooth', min: 1, max: 1}] },
-            colossalSquid: { name: 'Giant Colossal Squid', health: 80, minDmg: 7, maxDmg: 8, cooldown: 2500, attackName: 'Arm Slap', rarity: 'Legendary', special: { name: 'Beak Rend', cooldown: 6000, damage: 10, description: 'Lunges forward with its razor-sharp beak.' }, special2: { name: 'Ink Cloud', cooldown: 15000, damage: 2, description: 'Releases a blinding cloud of ink.' }, drops: [{item: 'Giant Squid Beak', min: 1, max: 2}, {item: 'Bone Fragment', min: 2, max: 4}, {item: 'Abyssal Pearl', min: 1, max: 1}] },
-        };
-        
-        const deepDiveLandmarks = [
-            { name: 'Hydrothermal vent valley', lootTable: ['Hydrothermal Sludge', 'Hydrothermal Vent Mineral'] },
-            { name: 'Semi-Submersible Rig Base', lootTable: ['Metallic Scrap', 'Chitinous Plating', 'Electroluminescent Filament'] },
-            { name: 'Abandoned Pipelines', lootTable: ['Hydrothermal Sludge', 'Metallic Scrap', 'Nautilus Shell'] },
-            { name: 'Abyssal Plain', lootTable: ['Bone Fragment', 'Ethereal Viscera', 'Coral Fragments'] },
-            { name: 'Whale falls', lootTable: ['Bone Fragment', 'Bio-Luminescence Sac', 'Chitinous Plating'] }
-        ];
-
-        function getEnemyByChance() {
-            const rand = Math.random() * 100;
-            if (rand < 1) return deepDiveEnemies.colossalSquid;
-            if (rand < 3) return deepDiveEnemies.whaleShark;
-            if (rand < 6) return deepDiveEnemies.greatWhite;
-            if (rand < 14) return deepDiveEnemies.oarfish;
-            if (rand < 24) return deepDiveEnemies.giantIsopod;
-            if (rand < 34) return deepDiveEnemies.goblinShark;
-            if (rand < 54) return deepDiveEnemies.deepseaLizardfish;
-            if (rand < 79) return deepDiveEnemies.giantPhantomJelly;
-            if (rand < 109) return deepDiveEnemies.ghostshark; // This logic is cumulative, so I'll adjust
-            // Let's use a weighted list approach instead
-            const encounterTable = [
-                { enemy: 'snipeEel', weight: 80 },
-                { enemy: 'squidworm', weight: 65 },
-                { enemy: 'dragonfish', weight: 50 },
-                { enemy: 'octopusSquid', weight: 40 },
-                { enemy: 'bigfinSquid', weight: 40 },
-                { enemy: 'frilledShark', weight: 45 },
-                { enemy: 'ghostshark', weight: 30 },
-                { enemy: 'giantPhantomJelly', weight: 25 },
-                { enemy: 'deepseaLizardfish', weight: 20 },
-                { enemy: 'goblinShark', weight: 10 },
-                { enemy: 'oarfish', weight: 8 },
-                { enemy: 'giantIsopod', weight: 10 },
-                { enemy: 'greatWhite', weight: 3 },
-                { enemy: 'whaleShark', weight: 2 },
-                { enemy: 'colossalSquid', weight: 1 },
-            ];
-            const totalWeight = encounterTable.reduce((sum, item) => sum + item.weight, 0);
-            let random = Math.random() * totalWeight;
-            for (const item of encounterTable) {
-                if (random < item.weight) {
-                    return deepDiveEnemies[item.enemy];
-                }
-                random -= item.weight;
-            }
-        }
-        
-        function updateDeepDivePrepUI() {
-            deepToolSelectionContainer.innerHTML = '';
-            if (hasSpear) deepToolSelectionContainer.innerHTML += `<div><input type="checkbox" id="deep-select-spear" value="spear"><label for="deep-select-spear"> Bring Spear</label></div>`;
-            if (hasHarpoonGun) deepToolSelectionContainer.innerHTML += `<div><input type="checkbox" id="deep-select-harpoon" value="harpoon"><label for="deep-select-harpoon"> Bring Harpoon Gun (${harpoonAmmoCount} ammo)</label></div>`;
-            if (hasBetterAirTank) deepToolSelectionContainer.innerHTML += `<div><input type="checkbox" id="deep-select-air-tank" value="air-tank"><label for="deep-select-air-tank"> Bring Better Air Tank (+15 Moves)</label></div>`;
-            if (hasFishingNet) deepToolSelectionContainer.innerHTML += `<div><input type="checkbox" id="deep-select-net" value="net"><label for="deep-select-net"> Bring Fishing Net</label></div>`;
-            if (bandageCount > 0) deepToolSelectionContainer.innerHTML += `<div><label for="deep-select-bandages">Bring Bandages: </label><input type="number" id="deep-select-bandages" value="0" min="0" max="${bandageCount}" style="width: 50px;"><span> (Max: ${bandageCount})</span></div>`;
-            if (deepToolSelectionContainer.innerHTML === '') deepToolSelectionContainer.innerHTML = '<p>You have no special tools to bring.</p>';
-        }
-        
-        function beginDeepDive() {
-            if (beginDeepDiveButton.classList.contains('disabled')) return;
-
-            isPlayerDeepDiving = true;
-            gameStats.totalDeepDives++;
-            deepDivePrepArea.style.display = 'none';
-            deepDiveMinigameArea.style.display = 'flex';
-            
-            MAX_PLAYER_HEALTH = hasGodHealth ? 500 : (hasKevlarArmour ? 25 : 15);
-            playerHealth = MAX_PLAYER_HEALTH;
-            deepDiveMoves = 5;
-            deepDiveTools = [];
-
-            const spearCheckbox = document.getElementById('deep-select-spear');
-            const airTankCheckbox = document.getElementById('deep-select-air-tank');
-            const netCheckbox = document.getElementById('deep-select-net');
-            const harpoonCheckbox = document.getElementById('deep-select-harpoon');
-            const bandageInput = document.getElementById('deep-select-bandages');
-            
-            deepDiveBandages = 0;
-            if (bandageInput && parseInt(bandageInput.value) > 0) {
-                const bandagesToTake = Math.min(bandageCount, parseInt(bandageInput.value));
-                deepDiveBandages = bandagesToTake;
-                bandageCount -= bandagesToTake;
-                bandageCountSpan.textContent = bandageCount;
-            }
-
-            if (airTankCheckbox && airTankCheckbox.checked) { deepDiveMoves += 15; deepDiveTools.push('air-tank'); }
-            if (spearCheckbox && spearCheckbox.checked) { deepDiveTools.push('spear'); }
-            if (netCheckbox && netCheckbox.checked) { deepDiveTools.push('net'); }
-            if (harpoonCheckbox && harpoonCheckbox.checked) { deepDiveTools.push('harpoon'); }
-
-            deepDiveInventory = [];
-            generateDeepDiveMap();
-            renderDeepDiveMinigame();
-            document.addEventListener('keydown', handlePlayerMovement);
-        }
-        
-        function generateDeepDiveMap() {
-            deepMinigameMap = Array(MAP_SIZE).fill(null).map(() => Array(MAP_SIZE).fill({ type: 'path' }));
-            const center = Math.floor(MAP_SIZE / 2);
-            
-            const totalLandmarks = 15; // Fewer landmarks in the deep
-            for (let i = 0; i < totalLandmarks; i++) {
-                const x = Math.floor(Math.random() * MAP_SIZE);
-                const y = Math.floor(Math.random() * MAP_SIZE);
-                const landmarkType = deepDiveLandmarks[Math.floor(Math.random() * deepDiveLandmarks.length)];
-                if (x !== center || y !== center) deepMinigameMap[y][x] = { type: 'landmark', details: landmarkType };
-            }
-
-            deepMinigameMap[center][center] = { type: 'boat' };
-            deepPlayerPosition = { x: center, y: center };
-        }
-        
-        function renderDeepDiveMinigame() {
-            let gridHTML = '';
-            for (let y = 0; y < MAP_SIZE; y++) {
-                 let rowHTML = '';
-                for (let x = 0; x < MAP_SIZE; x++) {
-                    const tile = deepMinigameMap[y][x];
-                    if (x === deepPlayerPosition.x && y === deepPlayerPosition.y) {
-                        let playerIcon = '';
-                        if (equippedPets[0]) playerIcon += `<span class="pet">${equippedPets[0].icon}</span>`;
-                        playerIcon += '<span class="player">@</span>';
-                        if (equippedPets[1]) playerIcon += `<span class="pet">${equippedPets[1].icon}</span>`;
-                        rowHTML += playerIcon;
-                    }
-                    else if (tile.type === 'boat') rowHTML += '<span class="boat">$</span>';
-                    else if (tile.type === 'landmark') rowHTML += `<span class="landmark" data-name="${tile.details.name}">#<span class="tooltip-text">${tile.details.name}</span></span>`;
-                    else rowHTML += '*';
-                }
-                 gridHTML += rowHTML + '\n';
-            }
-            deepMinigameGrid.innerHTML = gridHTML;
-            deepMovesLeftSpan.textContent = hasInfiniteMoves ? '∞' : deepDiveMoves;
-            updateHealthBars();
-            deepDiveBandageCountSpan.textContent = deepDiveBandages;
-            deepUseBandageButton.style.display = deepDiveBandages > 0 ? 'inline-block' : 'none';
-            updateDeepDiveInventoryDisplay();
-        }
-        
-        function handleDeepDiveMovement(e) {
-            let newX = deepPlayerPosition.x, newY = deepPlayerPosition.y;
-            if (e.key === 'ArrowUp' || e.key.toLowerCase() === 'w') newY--;
-            else if (e.key === 'ArrowDown' || e.key.toLowerCase() === 's') newY++;
-            else if (e.key === 'ArrowLeft' || e.key.toLowerCase() === 'a') newX--;
-            else if (e.key === 'ArrowRight' || e.key.toLowerCase() === 'd') newX++;
-            else return;
-
-            if (newY >= 0 && newY < MAP_SIZE && newX >= 0 && newX < MAP_SIZE) {
-                deepPlayerPosition = { x: newX, y: newY };
-                if (!hasInfiniteMoves) deepDiveMoves--;
-
-                const currentTile = deepMinigameMap[newY][newX];
-
-                if (currentTile.type === 'path' && !noEnemies && Math.random() < 0.30) {
-                    startCombat(getEnemyByChance());
-                    return;
-                } else if (currentTile.type === 'landmark') {
-                    openLandmark(currentTile.details, true);
-                    deepMinigameMap[newY][newX] = { type: 'path' };
-                } else if (currentTile.type === 'boat') {
-                    endDeepDive(true);
-                    return;
-                }
-
-                renderDeepDiveMinigame();
-                if (deepDiveMoves <= 0 && !hasInfiniteMoves) endDeepDive(false);
-            }
-        }
-        
-        function endDeepDive(isSuccess) {
-            document.removeEventListener('keydown', handlePlayerMovement);
-            isPlayerDeepDiving = false;
-            deepDiveMinigameArea.style.display = 'none';
-            deepDivePrepArea.style.display = 'flex';
-            startCooldown(beginDeepDiveButton, deepDiveCooldownBar, deepDiveCooldownDuration);
-            MAX_PLAYER_HEALTH = hasKevlarArmour ? 25 : 15; // Reset health
-            
-            bandageCount += deepDiveBandages; // Return unused bandages
-            bandageCountSpan.textContent = bandageCount;
-            
-            if (isSuccess) {
-                addNarrativeLine("You surfaced from the abyss, alive.");
-                deepDiveInventory.forEach(slot => {
-                    if (slot) {
-                        addItemToInventory(slot.item, slot.quantity);
-                        addNarrativeLine(`Brought back ${slot.quantity} ${slot.item}.`);
-                    }
-                });
-            } else {
-                addNarrativeLine("The pressure was too much... You blacked out and lost everything from the deep dive.");
-            }
-            deepDiveInventory = [];
-            deepDiveTools = [];
-            
-            switchScreen('game');
-            processQueuedEvents();
-            processPopupQueue();
-        }
-        
-        function updateDeepDiveInventoryDisplay() {
-            let html = '';
-            for (let i = 0; i < DIVE_INV_SLOTS; i++) {
-                const slot = deepDiveInventory[i];
-                if (slot) {
-                    html += `<div>${slot.item}: ${slot.quantity}/${DIVE_STACK_LIMIT}</div>`;
-                } else {
-                    html += `<div><i>- Empty -</i></div>`;
-                }
-            }
-            deepDiveInventoryDisplay.innerHTML = html || '<b>Deep Dive Inventory:</b>';
-        }
-        
-        function handleEnemySpecial(specialName) {
-            const special = currentEnemy.special.name === specialName ? currentEnemy.special : currentEnemy.special2;
-            addCombatLog(`The ${currentEnemy.name} uses ${special.name}!`);
-
-            switch(special.name) {
-                case 'Tentacle Barrage':
-                    for(let i = 0; i < special.hits; i++) {
-                        playerHealth -= special.damage;
-                        addCombatLog(`A tentacle hits you for ${special.damage} damage.`);
-                    }
-                    break;
-                case 'Bioluminescent Flash':
-                    playerHealth -= special.damage;
-                    isPlayerStunned = true;
-                    addCombatLog(`The flash stuns you!`);
-                    setTimeout(() => { if(!isGamePaused) { isPlayerStunned = false; addCombatLog("You can move again."); } }, 2000);
-                    break;
-                case 'Ethereal Envelopment':
-                case 'Vortex Gulp':
-                    playerDoT = { damage: special.damage, duration: special.duration };
-                    addCombatLog(`You are caught in the attack!`);
-                    break;
-                default:
-                    playerHealth -= special.damage;
-                    break;
-            }
-            updateHealthBars();
-            if (playerHealth <= 0) endCombat('loss');
-        }
-
-        // --- Nursery and Merchant Logic ---
-        function updateMerchantUI() {
-            pearlDisplay.textContent = `Pearls: ${pearlCount}`;
-            merchantEggsContainer.innerHTML = ''; // Clear existing eggs
-
-            merchantEggs.forEach(egg => {
-                const eggDiv = document.createElement('div');
-                eggDiv.classList.add('egg-for-sale');
-                eggDiv.innerHTML = `
-                    <div class="egg-art">${egg.art}</div>
-                    <div>${egg.name}</div>
-                    <div>Cost: ${egg.cost} Pearls</div>
-                `;
-                eggDiv.addEventListener('click', () => buyEgg(egg.type, egg.cost));
-                merchantEggsContainer.appendChild(eggDiv);
-            });
-        }
-
-        function buyEgg(type, cost) {
-            if (pearlCount >= cost) {
-                pearlCount -= cost;
-                const newEgg = { type: type, id: Date.now() };
-                eggInventory.push(newEgg);
-                addNarrativeLine(`You purchased a ${type} Egg!`);
-                updateMerchantUI(); // Refresh display to show new pearl count
-                updateNurseryUI(); // Refresh nursery to show the new egg
-            } else {
-                addNarrativeLine("You don't have enough pearls to buy this egg.");
-            }
-        }
 
 
         // --- Main Game Event Listeners ---
@@ -4708,9 +3859,6 @@
         achievementsTab.addEventListener('click', () => switchScreen('achievements'));
         workersTab.addEventListener('click', () => switchScreen('workers'));
         diveTab.addEventListener('click', () => switchScreen('dive'));
-        deepDiveTab.addEventListener('click', () => switchScreen('deep-dive'));
-        nurseryTab.addEventListener('click', () => switchScreen('nursery'));
-        merchantTab.addEventListener('click', () => switchScreen('merchant'));
         progressionButton.addEventListener('click', () => switchScreen('progression'));
         progressionBackButton.addEventListener('click', () => switchScreen('game'));
         commandsButton.addEventListener('click', () => switchScreen('commands'));
@@ -4728,9 +3876,7 @@
         cancelImportButton.addEventListener('click', () => { importConfirmModal.style.display = 'none'; });
         swimButton.addEventListener('click', swim);
         beginDiveButton.addEventListener('click', beginDive);
-        beginDeepDiveButton.addEventListener('click', beginDeepDive);
         useBandageButton.addEventListener('click', useBandage);
-        deepUseBandageButton.addEventListener('click', useBandage);
         buildHabitatButton.addEventListener('click', buildHabitat);
         fistAttackButton.addEventListener('click', () => playerAttack('fist'));
         spearAttackButton.addEventListener('click', () => playerAttack('spear'));
@@ -4785,34 +3931,4 @@
 
     </script>
 </body>
-</html>- 53-grid, grouped by rarity, lock blur, hover to enlarge w/ info and equip/unequip, max 2 equipped, shows as icons next to player in dives/combat.
-
-### Merchant Tab
-- Show pearls at top, 5 egg boxes (3 up, 2 below in dice-5 shape) each with egg name, big ⬯, price, click to buy if enough pearls, egg added to nursery.
-
-### Egg Prices
-- Common: 800 Pearls
-- Complex: 2,400 Pearls
-- Elite: 8,000 Pearls
-- Apocryphal: 20,000 Pearls
-- Secret: 32,000 Pearls
-
-### Egg Hatch Timers
-- Common: 5m
-- Complex: 15m
-- Elite: 30m
-- Apocryphal: 1h
-- Secret: 2h
-
-### Hatching Mechanics
-- Animate wheel with pet icons/names, duplicates give 10 pearls, new pets unblur in catalog.
-- Command "elonmuskofpearls" sets pearls to 999999 instantly.
-
-### In Dives/Combat
-- Equipped pets show as small icons beside player, perks apply (not targetable/destroyed).
-
-### Pets
-- Add all 53 pets including name, rarity, perk, icon (first+last letter), and hover info.
-
-### CSS
-- All new CSS must match the monochrome style and outlined look. All changes must be non-destructive and preserve existing code/logic unless replaced by above UI/logic. The merchant tab and nursery tab must be visually improved as described, with correct grid layouts. The egg hatching, pet catalog, and equip logic must match the description above.
+</html>
